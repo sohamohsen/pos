@@ -1,7 +1,8 @@
 package com.pos.pos_inventory.exception.security;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pos.user.util.ApiResponse;
+import com.pos.pos_inventory.util.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

@@ -1,12 +1,10 @@
-package com.pos.user.util;
+package com.pos.pos_inventory.util;
 
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
-@Builder
 public class ApiResponse<T> {
 
     private boolean success;
@@ -14,22 +12,26 @@ public class ApiResponse<T> {
     private T data;
     private LocalDateTime timestamp;
 
-    // ===== Static Factory Methods =====
+    private ApiResponse(boolean success, String message, T data, LocalDateTime timestamp) {
+        this.success = success;
+        this.message = message;
+        this.data = data;
+        this.timestamp = timestamp;
+    }
 
     public static <T> ApiResponse<T> success(String message, T data) {
-        return ApiResponse.<T>builder()
-                .success(true)
-                .message(message)
-                .data(data)
-                .timestamp(LocalDateTime.now())
-                .build();
+        return new ApiResponse<>(true, message, data, LocalDateTime.now());
+    }
+
+    public static <T> ApiResponse<T> success(String message) {
+        return new ApiResponse<>(true, message, null, LocalDateTime.now());
     }
 
     public static <T> ApiResponse<T> error(String message) {
-        return ApiResponse.<T>builder()
-                .success(false)
-                .message(message)
-                .timestamp(LocalDateTime.now())
-                .build();
+        return new ApiResponse<>(false, message, null, LocalDateTime.now());
+    }
+
+    public static <T> ApiResponse<T> error(String message, T data) {
+        return new ApiResponse<>(false, message, data, LocalDateTime.now());
     }
 }

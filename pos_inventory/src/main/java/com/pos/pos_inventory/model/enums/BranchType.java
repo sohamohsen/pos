@@ -1,6 +1,6 @@
 package com.pos.pos_inventory.model.enums;
 
-public enum LocationType {
-    BRANCH,
+public enum BranchType {
+    STORE,
     WAREHOUSE
 }

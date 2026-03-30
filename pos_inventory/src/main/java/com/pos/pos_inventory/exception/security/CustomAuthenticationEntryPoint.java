@@ -1,7 +1,7 @@
 package com.pos.pos_inventory.exception.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pos.user.util.ApiResponse;
+import com.pos.pos_inventory.util.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -22,13 +22,11 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
                          AuthenticationException authException) {
 
         try {
-
             ApiResponse<?> apiResponse =
                     ApiResponse.error("Unauthorized - Please login first");
 
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             response.setContentType("application/json");
-
             response.getWriter()
                     .write(objectMapper.writeValueAsString(apiResponse));
 

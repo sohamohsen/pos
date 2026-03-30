@@ -1,28 +1,31 @@
 package com.pos.pos_inventory.controller;
 
-import com.pos.pos_inventory.dto.InventoryRequest;
+import com.pos.pos_inventory.dto.InitRequest;
+import com.pos.pos_inventory.dto.InitResponse;
 import com.pos.pos_inventory.service.InventoryService;
+import com.pos.pos_inventory.util.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.naming.ServiceUnavailableException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/inventory")
 public class InventoryController {
 
-    private InventoryService inventoryService;
+    private final InventoryService inventoryService;
 
-    @PostMapping("")
-    public ResponseEntity<com.pos.user.util.ApiResponse<?>> createProduct(@RequestBody InventoryRequest request){
+    @PostMapping("/init")
+    public ResponseEntity<ApiResponse<?>> createInitProduct(@RequestBody InitRequest request) throws ServiceUnavailableException {
 
-        inventoryService.createProduct;
+        InitResponse response = inventoryService.createInit (request);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(com.pos.user.util.ApiResponse.success("product added sucssefully", null));
+                .body(ApiResponse.success("product added sucssefully", null));
     }
 }

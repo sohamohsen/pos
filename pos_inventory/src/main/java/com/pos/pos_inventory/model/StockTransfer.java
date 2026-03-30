@@ -1,6 +1,6 @@
 package com.pos.pos_inventory.model;
 
-import com.pos.pos_inventory.model.enums.LocationType;
+import com.pos.pos_inventory.model.enums.BranchType;
 import com.pos.pos_inventory.model.enums.TransferStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,12 +23,12 @@ public class StockTransfer {
     private Integer productId;
 
     @Enumerated(EnumType.STRING)
-    private LocationType fromLocationType;
+    private BranchType fromLocationType;
 
     private Integer fromLocationId;
 
     @Enumerated(EnumType.STRING)
-    private LocationType toLocationType;
+    private BranchType toLocationType;
 
     private Integer toLocationId;
 

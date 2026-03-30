@@ -5,11 +5,12 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class InventoryRequest {
+public class InitRequest {
     private Integer productId;
-    private String locationType;
-    private Integer locationId;
+    private Integer branchId;
     private Integer availableQuantity;
     private Integer displayQuantity;
     private Integer reorderLevel;
+    private Integer reorderQuantity;
+
 }

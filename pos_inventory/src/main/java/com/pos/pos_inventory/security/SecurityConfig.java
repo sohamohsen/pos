@@ -1,7 +1,7 @@
 package com.pos.pos_inventory.security;
 
-import com.pos.user.exception.security.CustomAccessDeniedHandler;
-import com.pos.user.exception.security.CustomAuthenticationEntryPoint;
+import com.pos.pos_inventory.exception.security.CustomAccessDeniedHandler;
+import com.pos.pos_inventory.exception.security.CustomAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableMethodSecurity // مهم جدًا علشان @PreAuthorize يشتغل
+@EnableMethodSecurity
 public class SecurityConfig {
 
     private final SecurityFilter filter;
@@ -44,6 +44,7 @@ public class SecurityConfig {
 
                         // Public
                         .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/inventory/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
 
                         // Branch management
