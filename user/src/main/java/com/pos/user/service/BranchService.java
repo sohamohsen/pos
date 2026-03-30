@@ -1,5 +1,6 @@
 package com.pos.user.service;
 
+import com.pos.user.dto.BranchExistResponse;
 import com.pos.user.dto.BranchRequest;
 import com.pos.user.dto.BranchResponse;
 import com.pos.user.entity.Branch;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -63,6 +65,20 @@ public class BranchService {
         if (request.getType() != null)
             branch.setType(request.getType());
     }
+    public BranchExistResponse existsBranches(Integer id) {
+        if (!branchRepository.existsById(id)){
+            return BranchExistResponse.builder()
+                    .exist(false)
+                    .build();
+        }
+        Optional<Branch> branch = branchRepository.findById(id);
+        return BranchExistResponse.builder()
+                .exist(true)
+                .branchType(branch.get().getType())
+                .build();
+
+
+    }
 
     @Transactional
     public void deleteBranch(Integer id) {
@@ -70,7 +86,7 @@ public class BranchService {
         Branch branch = branchRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Branch not found"));
 
-        branch.setIsActive(false); // Soft delete
+        branch.setIsActive(false);
     }
 
     private BranchResponse mapToResponse(Branch branch) {

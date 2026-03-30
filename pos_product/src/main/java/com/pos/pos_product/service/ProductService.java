@@ -427,4 +427,8 @@ public class ProductService {
         }
         return new BigDecimal(value.trim());
     }
+
+    public boolean existsProduct(Integer id) {
+        return productRepository.existsById(id);
+    }
 }
