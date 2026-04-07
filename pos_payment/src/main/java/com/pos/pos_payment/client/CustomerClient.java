@@ -1,6 +1,6 @@
 package com.pos.pos_payment.client;
 
-import com.pos.pos_payment.security.FeignClientConfig;
+import com.pos.pos_payment.client.FeignClientConfig;
 import com.pos.pos_payment.util.ApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

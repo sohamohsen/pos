@@ -1,0 +1,43 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.pos:pos_payment >-------------------------
+[INFO] Building pos_payment 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ pos_payment ---
+[INFO] Deleting D:\Projects\Java\POS\pos_payment\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ pos_payment ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ pos_payment ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 36 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/Projects/Java/POS/pos_payment/src/main/java/com/pos/pos_payment/client/CustomerClient.java:[3,36] cannot find symbol
+  symbol:   class FeignClientConfig
+  location: package com.pos.pos_payment.security
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.911 s
+[INFO] Finished at: 2026-04-07T15:40:41+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project pos_payment: Compilation failure
+[ERROR] /D:/Projects/Java/POS/pos_payment/src/main/java/com/pos/pos_payment/client/CustomerClient.java:[3,36] cannot find symbol
+[ERROR]   symbol:   class FeignClientConfig
+[ERROR]   location: package com.pos.pos_payment.security
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
