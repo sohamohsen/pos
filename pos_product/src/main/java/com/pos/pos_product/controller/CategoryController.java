@@ -57,12 +57,12 @@ public class CategoryController {
 
     @PatchMapping("update-category/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ApiResponse<Void>> toggleProduct(
+    public ResponseEntity<ApiResponse<Void>> toggleCategory(
             @PathVariable Integer id,
             @RequestParam(value = "active", required = false) Boolean active
     ) {
 
-        categoryService.toggleProduct(id);
+        categoryService.toggleCategory(id);
 
         return ResponseEntity.ok(
                 ApiResponse.<Void>builder()
@@ -74,7 +74,7 @@ public class CategoryController {
 
     @PatchMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ApiResponse<Void>> toggleProduct(
+    public ResponseEntity<ApiResponse<Void>> updateCategory(
             @PathVariable Integer id,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "description", required = false) String description,

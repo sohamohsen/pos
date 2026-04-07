@@ -19,9 +19,9 @@ public class CategoryResponse {
 
     private boolean active;
 
-    private Long activeProudestCount;
+    private Long activeProductCount;
 
-    private Long notActiveCategoryCount;
+    private Long notActiveProductCount;
 
     private LocalDateTime createdAt;
 }

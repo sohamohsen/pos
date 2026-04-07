@@ -55,7 +55,7 @@ public class ProductController {
 
     @PatchMapping("product-img/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ApiResponse<Void>> categoryImg(
+    public ResponseEntity<ApiResponse<Void>> productImg(
             @PathVariable Integer id,
             @RequestParam(value = "file") MultipartFile file
     ) {
@@ -90,7 +90,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ApiResponse<Void>> deleteCategory(
+    public ResponseEntity<ApiResponse<Void>> deleteProduct(
             @PathVariable Integer id
     ) {
 

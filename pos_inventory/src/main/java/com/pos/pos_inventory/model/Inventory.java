@@ -63,6 +63,8 @@ public class Inventory {
     @Builder.Default
     private Integer reorderQuantity = 0;
 
+    private String note;
+
     @Column(name = "notification_sent")
     @Builder.Default
     private Boolean notificationSent = false;

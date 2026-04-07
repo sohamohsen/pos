@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
-        name = "pos-user",
-        url = "${services.user.base-url}",
+        name = "user",
+        path = "/api/user/remote",
         configuration = FeignClientConfig.class
 )
 public interface UserClient {

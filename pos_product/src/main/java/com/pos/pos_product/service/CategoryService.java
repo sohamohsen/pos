@@ -171,13 +171,13 @@ public class CategoryService {
                 .description(category.getDescription())
                 .imageUrl(category.getImageUrl())
                 .active(category.isActive())
-                .activeProudestCount(activeProductCount)
-                .notActiveCategoryCount(notActiveProductCount)
+                .activeProductCount(activeProductCount)
+                .notActiveProductCount(notActiveProductCount)
                 .createdAt(category.getCreatedAt())
                 .build();
     }
 
-    public PageResponse<CategoryResponse> getAllCategories(int page, int size, String name, boolean active) {
+    public PageResponse<CategoryResponse> getAllCategories(int page, int size, String name, Boolean active) {
         if (page < 0) {
             throw new IllegalArgumentException("Page index must not be negative");
         }
@@ -206,7 +206,7 @@ public class CategoryService {
     }
 
     @Transactional
-    public void toggleProduct(Integer id) {
+    public void toggleCategory(Integer id) {
 
         Category category = getCategory(id);
 
